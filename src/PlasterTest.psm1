@@ -1,6 +1,8 @@
 # Get public function definition files and dot source them
-$Public = @(Get-ChildItem -Path $PSScriptRoot\Public\*.ps1)
-$Private = @(Get-ChildItem -Path $PSScriptRoot\Private\*.ps1)
+$PublicPath = Join-Path -Path $PSScriptRoot -ChildPath "public" -AdditionalChildPath "*.ps1"
+$PrivatePath = Join-Path -Path $PSScriptRoot -ChildPath "private" -AdditionalChildPath "*.ps1"
+$Public = @(Get-ChildItem -Path $PublicPath)
+$Private = @(Get-ChildItem -Path $PrivatePath)
 
 foreach ($Module in ($Public + $Private)) {
     try {
