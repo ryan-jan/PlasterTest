@@ -5,17 +5,21 @@ param (
 )
 
 Write-Host "Running on PowerShell $($PSVersionTable.PSEdition) $($PSVersionTable.PSVersion.ToString())"
-Import-Module $PSScriptRoot\..\src\PlasterTest.psd1
+$RepoRoot = Split-Path -Path $PSScriptRoot -Parent
+$ModulePath = Join-Path -Path $RepoRoot -ChildPath "src" -AdditionalChildPath "PlasterTest.psd1"
+$TestsPath = Join-Path -Path $PSScriptRoot -ChildPath "Invoke-Tests.ps1"
+$DeployPath = Join-Path -Path $PSScriptRoot -ChildPath "Deploy.ps1"
+Import-Module $ModulePath
 
 if ($Test) {
     if ($CodeCov) {
-        & "$PSScriptRoot\Invoke-Tests.ps1" -CodeCov
+        & $TestsPath -CodeCov
     } else {
-        & "$PSScriptRoot\Invoke-Tests.ps1"
+        & $TestsPath
     }
 }
 
 if ($Deploy) {
-    & "$PSScriptRoot\Deploy.ps1"
+    & $DeployPath
 }
 

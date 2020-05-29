@@ -28,5 +28,5 @@ for:
       only:
         - image: Ubuntu1804
     test_script:
-      - ps: ./utils/Build.ps1 -Test -CodeCov -Deploy
+      - ps: ./utils/Build.ps1 -Test -Deploy
 
