@@ -22,11 +22,11 @@ for:
       only:
         - image: Visual Studio 2019
     test_script:
-      - ps: .\Utils\Build.ps1 -Test
+      - ps: .\utils\Build.ps1 -Test
   -
     matrix:
       only:
         - image: Ubuntu1804
     test_script:
-      - ps: ./Utils/Build.ps1 -Test -CodeCov -Deploy
+      - ps: ./utils/Build.ps1 -Test -CodeCov -Deploy
 
