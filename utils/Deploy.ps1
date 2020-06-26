@@ -18,7 +18,7 @@ if ($CurModuleVersion -gt $PrevModuleVersion) {
 Start-Sleep -Seconds 5
 Rename-Item -Path ".\src" -NewName "PlasterTest" -Force -Confirm:$false
 $CurModuleVersion = (Import-PowerShellDataFile ".\PlasterTest\PlasterTest.psd1").ModuleVersion
-$Tag = @((git tag --points-at master))[0]
+$Tag = git tag --points-at master
 
 if ($null -ne $Tag) {
     if ($Tag -like "v$($CurModuleVersion.ToString)") {
