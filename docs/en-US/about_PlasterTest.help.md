@@ -10,6 +10,7 @@ IE:
 # Some Help Topic Name
 ## SomeHelpTopicFileName
 
+
 This will be transformed into the text file
 as `about_SomeHelpTopicFileName`.
 Do not include file extensions.
